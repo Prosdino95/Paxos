@@ -75,7 +75,7 @@ public class AgentHandler implements Runnable {
                 }
             }
         },7000);
-        System.out.println("discofery fatta!!!!!");
+        System.out.println("[Agent: "+data.getId() + "]: Discovery Complete!");
 
         try{Thread.sleep(2000);}
         catch(Exception e){e.printStackTrace();}
@@ -88,8 +88,6 @@ public class AgentHandler implements Runnable {
 
     private void respons(Message m){
         String response = null;
-        if(m.getRound()!= data.getRound())
-            return;
         try {
             switch (m.getMessageType()) {
                 case "PREPAREREQUEST":

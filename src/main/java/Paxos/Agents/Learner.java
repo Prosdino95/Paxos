@@ -49,7 +49,7 @@ public class Learner {
             fw.append(s);
             fw.append("\n");
             fw.flush();
-            reset();
+            //reset();
         } catch (IOException e) {
             e.printStackTrace();
         }
