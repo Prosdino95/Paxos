@@ -90,4 +90,42 @@
   \end{center}
 \end{frame}
 
+\begin{frame}
+  \Paxos
+  \begin{itemize}
+  \Paxos define three roles: Proposers Acceptors and learners
+  \Paxos node can take multiple roles, (all of them in out project)
+  \Paxos node must know how many Acceptors a majority Is
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \Proposer want to propose a certain value: it send a PREPAREREQUEST with an unique ID at all acceptors
+  \Acceptor receive a preparerequest for ID
+  \begin{itemize}
+  \Did It promise to ignore request with this ID?
+  \Yes --> ignore
+  \No --> promise to ignore any request lower than this ID replie with a RESPONTOPREPAREREQUEST
+  \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{itemize}
+  \If Proposer gets a majority of RESPONDTOPREPAREREQUEST for a specific ID It send an ACCEPTREQUEST with ID and Value to all acceptors
+  \Acceptor receive a ACCEPTREQUEST for ID
+  \begin{itemize}
+  \Did It promise to ignore request with this ID?
+  \Yes --> ignore
+  \No --> send a DECISION message to all learner
+  \end{itemize}
+  \When a learner receive a majority of Decision message the log Value in a file and the consensus Is reach.
+  \If After some time no consensus Is reach the Proposer resend a PREPAREREQUEST with higher ID.
+  \end{itemize}
+\end{frame}
+
+
+
 \end{document}
