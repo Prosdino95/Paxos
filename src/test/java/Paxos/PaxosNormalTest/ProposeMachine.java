@@ -19,7 +19,7 @@ public class ProposeMachine {
 
         s.nextLine();
 
-        Paxos.propose((long)250,"Chiedi cose utili al tuo esame",a1);
-        Paxos.propose((long)5,"E voi studiate di piu'",a2);
+        Paxos.propose((long)250,"Fragola",a1);
+        Paxos.propose((long)5,"Mela",a2);
     }
 }

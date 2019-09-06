@@ -19,6 +19,6 @@ public class ProposeMachine2 {
         s.nextLine();
 
         Paxos.propose((long)12,"Polimi",a1);
-        Paxos.propose((long)80,"Siamo Belli",a2);
+        Paxos.propose((long)80,"Paxos",a2);
     }
 }
