@@ -91,7 +91,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitl{Paxos}
+  \frametitle{Paxos}
   \begin{itemize}
   \item Paxos define three roles: Proposers Acceptors and learners
   \item Paxos node can take multiple roles, (all of them in out project)
@@ -123,6 +123,35 @@
   \end{itemize}
   \item When a learner receive a majority of Decision message the log Value in a file and the consensus Is reach.
   \item If After some time no consensus Is reach the Proposer resend a PREPAREREQUEST with higher ID.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Library}
+  \begin{itemize}
+  \item Set up the network with Void Paxos.init(boolean naming);
+  \begin{itemize}
+  \item if naming is true the machine acts as a naming node
+  \item if naming is false the machine acts as a normal node
+  \end{itemize}
+  \item add a paxos proces with: Paxos.addProces(long ID, string path);
+  \begin{itemize}
+  \item if you don't choose an ID it is chosen random
+  \item if you don't choose a path for the log file it is generated at "./src/main/java/Paxos/"
+  \item the function returns an AgentHandler
+  \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item Every agent can make a propose with the method:
+  \item propose(Long proposID, String value, AgentHandler agent)
+  \begin{itemize}
+  \item for istance: propose(122,"foo", agent1);
+  \end{itemize}
+  \item it possible read the consensus by reading the log file or with function
+  \item String readConsensus(AgentHandler agent)
   \end{itemize}
 \end{frame}
 
